@@ -85,10 +85,22 @@ class HomeScreen extends StatelessWidget {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
                       children: <Widget>[
-                        CategoryCard(),
-                        CategoryCard(),
-                        CategoryCard(),
-                        CategoryCard(),
+                        CategoryCard(
+                          svgSrc: "assets/icons/Hamburger.svg",
+                          title: "Diet\n Recommendation",
+                        ),
+                        CategoryCard(
+                          svgSrc: "assets/icons/Excrecises.svg",
+                          title: "Kegel Exercises",
+                        ),
+                        CategoryCard(
+                          svgSrc: "assets/icons/Meditation.svg",
+                          title: "Meditation",
+                        ),
+                        CategoryCard(
+                          svgSrc: "assets/icons/yoga.svg",
+                          title: "Yoga",
+                        ),
                       ],
                     ),
                   )
@@ -103,8 +115,12 @@ class HomeScreen extends StatelessWidget {
 }
 
 class CategoryCard extends StatelessWidget {
+  final String svgSrc;
+  final String title;
   const CategoryCard({
     Key key,
+    this.svgSrc,
+    this.title,
   }) : super(key: key);
 
   @override
@@ -120,12 +136,12 @@ class CategoryCard extends StatelessWidget {
         children: <Widget>[
           Spacer(),
           SvgPicture.asset(
-            "assets/icons/Hamburger.svg",
+            svgSrc,
             width: 250,
           ),
           Spacer(),
           Text(
-            "Diet \nRecommendation ",
+            "$title",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.title.copyWith(fontSize: 20),
           ),
