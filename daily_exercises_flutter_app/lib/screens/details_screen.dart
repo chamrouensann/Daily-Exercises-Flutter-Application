@@ -19,19 +19,34 @@ class DetailsScreen extends StatelessWidget {
             ),
           ),
           SafeArea(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: size.height * 0.05,
-                ),
-                Text(
-                  "Meditation",
-                  style: Theme.of(context)
-                      .textTheme
-                      .display1
-                      .copyWith(fontWeight: FontWeight.w900),
-                )
-              ],
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: size.height * 0.05,
+                  ),
+                  Text(
+                    "Meditation",
+                    style: Theme.of(context)
+                        .textTheme
+                        .display1
+                        .copyWith(fontWeight: FontWeight.w900),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "3-10 MIN course",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10),
+                  SizedBox(
+                    width: size.width * .6,
+                    child: Text(
+                        "Live happy and learn to live with other people and enjoy your life and make your dream happen. You should meditation 10mins a day to get good health."),
+                  )
+                ],
+              ),
             ),
           )
         ],

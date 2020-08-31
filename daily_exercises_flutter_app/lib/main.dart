@@ -2,6 +2,7 @@ import 'package:dailyexercisesflutterapp/constants.dart';
 import 'package:dailyexercisesflutterapp/screens/details_screen.dart';
 import 'package:dailyexercisesflutterapp/widgets/bottom_nav_bar.dart';
 import 'package:dailyexercisesflutterapp/widgets/category_card.dart';
+import 'package:dailyexercisesflutterapp/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -67,21 +68,7 @@ class HomeScreen extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                         ),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(29.5),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        icon: SvgPicture.asset("assets/icons/search.svg"),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
+                  SearchBar(),
                   Expanded(
                     child: GridView.count(
                       childAspectRatio: .99,
