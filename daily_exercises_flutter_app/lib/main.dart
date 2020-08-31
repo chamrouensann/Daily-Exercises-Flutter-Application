@@ -1,4 +1,5 @@
 import 'package:dailyexercisesflutterapp/constants.dart';
+import 'package:dailyexercisesflutterapp/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,6 +27,21 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+        height: 70,
+        color: Colors.yellow,
+        child: Row(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                SvgPicture.asset("assets/icons/calendar.svg"),
+                Text("Today")
+              ],
+            ),
+          ],
+        ),
+      ),
       body: Stack(
         children: <Widget>[
           Container(
@@ -88,18 +104,22 @@ class HomeScreen extends StatelessWidget {
                         CategoryCard(
                           svgSrc: "assets/icons/Hamburger.svg",
                           title: "Diet\n Recommendation",
+                          press: () {},
                         ),
                         CategoryCard(
                           svgSrc: "assets/icons/Excrecises.svg",
                           title: "Kegel Exercises",
+                          press: () {},
                         ),
                         CategoryCard(
                           svgSrc: "assets/icons/Meditation.svg",
                           title: "Meditation",
+                          press: () {},
                         ),
                         CategoryCard(
                           svgSrc: "assets/icons/yoga.svg",
                           title: "Yoga",
+                          press: () {},
                         ),
                       ],
                     ),
@@ -109,56 +129,6 @@ class HomeScreen extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  final String svgSrc;
-  final String title;
-  const CategoryCard({
-    Key key,
-    this.svgSrc,
-    this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-//      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(13),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 17),
-              blurRadius: 17,
-              spreadRadius: -27,
-              color: kShadowColor,
-            )
-          ]),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {},
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Spacer(),
-              SvgPicture.asset(
-                svgSrc,
-                width: 250,
-              ),
-              Spacer(),
-              Text(
-                "$title",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.title.copyWith(fontSize: 20),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
