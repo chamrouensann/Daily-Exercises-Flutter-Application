@@ -126,26 +126,39 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+//      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(13),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Spacer(),
-          SvgPicture.asset(
-            svgSrc,
-            width: 250,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(13),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, 17),
+              blurRadius: 17,
+              spreadRadius: -27,
+              color: kShadowColor,
+            )
+          ]),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {},
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Spacer(),
+              SvgPicture.asset(
+                svgSrc,
+                width: 250,
+              ),
+              Spacer(),
+              Text(
+                "$title",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.title.copyWith(fontSize: 20),
+              ),
+            ],
           ),
-          Spacer(),
-          Text(
-            "$title",
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.title.copyWith(fontSize: 20),
-          ),
-        ],
+        ),
       ),
     );
   }
