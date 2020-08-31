@@ -28,16 +28,24 @@ class HomeScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+        padding: EdgeInsets.symmetric(horizontal: 60, vertical: 12),
         height: 70,
-        color: Colors.yellow,
+        color: Colors.white,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Column(
-              children: <Widget>[
-                SvgPicture.asset("assets/icons/calendar.svg"),
-                Text("Today")
-              ],
+            BottomNavItems(
+              Svgsrc: "assets/icons/calendar.svg",
+              title: "Today",
+            ),
+            BottomNavItems(
+              Svgsrc: "assets/icons/gym.svg",
+              title: "All Exercises",
+              isActive: true,
+            ),
+            BottomNavItems(
+              Svgsrc: "assets/icons/Settings.svg",
+              title: "Setting",
             ),
           ],
         ),
@@ -128,6 +136,39 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class BottomNavItems extends StatelessWidget {
+  final String Svgsrc;
+  final String title;
+  final Function press;
+  final bool isActive;
+  const BottomNavItems({
+    Key key,
+    this.Svgsrc,
+    this.title,
+    this.press,
+    this.isActive = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          SvgPicture.asset(Svgsrc),
+          Text(
+            title,
+            style: TextStyle(
+              color: isActive ? kActiveIconColor : kTextColor,
+            ),
+          ),
         ],
       ),
     );
