@@ -1,4 +1,6 @@
 import 'package:dailyexercisesflutterapp/constants.dart';
+import 'package:dailyexercisesflutterapp/widgets/search_bar.dart';
+import 'package:dailyexercisesflutterapp/widgets/session_card.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -44,6 +46,59 @@ class DetailsScreen extends StatelessWidget {
                     width: size.width * .6,
                     child: Text(
                         "Live happy and learn to live with other people and enjoy your life and make your dream happen. You should meditation 10mins a day to get good health."),
+                  ),
+                  SizedBox(
+                    child: SearchBar(),
+                    width: size.width * .4,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Wrap(
+                    spacing: 20,
+                    runSpacing: 20,
+                    children: <Widget>[
+                      SessionCard(
+                        sessionNum: 1,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 2,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 3,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 4,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 5,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 6,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 7,
+                        isDone: true,
+                        press: () {},
+                      ),
+                      SessionCard(
+                        sessionNum: 8,
+                        isDone: true,
+                        press: () {},
+                      ),
+                    ],
                   )
                 ],
               ),
